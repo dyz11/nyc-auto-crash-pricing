@@ -31,8 +31,6 @@ Use real exposure (car-years and miles driven), assign claims to the car's garag
 
 ## Data
 
-All data is free and public. The raw files are not included in this repository because of their size; follow the steps below to download them.
-
 ### 1. Crash records: NYC Open Data
 **Source:** [Motor Vehicle Collisions – Crashes](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95)
 

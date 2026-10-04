@@ -14,13 +14,13 @@ I used NYC Open Data's police-reported crash records for 2023–2025 (273,469 cr
 
 ## Findings
 
-- Brooklyn vehicles have about 1.6× the crash rate of Queens (1.6–1.9× depending on how highway crashes are assigned); the Bronx about 1.5×; Staten Island about 0.6×.
+- Brooklyn vehicles have about 1.6× the crash rate of Queens (1.6–1.9× depending on how highway crashes are assigned), the Bronx about 1.5×, Staten Island about 0.6×.
 - The evening rush (4–8 pm) is the riskiest time, about 1.15× midday. Night has 41% fewer crashes per hour, but night crashes are about 3× as likely to be fatal (5.5 vs. 1.8 deaths per 1,000 crashes).
 - Crash counts varied about 70× more than Poisson allows, so a Negative Binomial model was needed for honest confidence intervals.
 
 ## Limitations
 
-- **Crash location vs. garaging location.** Insurers rate by where a car is kept; however, this data records where crashes happen. This inflates Manhattan (1.9×, treated as an upper bound) because of higher activity, and it likely understates Queens in the same way.
+- **Crash location vs. garaging location.** Insurers rate by where a car is kept. However, this data records where crashes happen. This inflates Manhattan (1.9×, treated as an upper bound) because of higher activity, and it likely understates Queens in the same way.
 - **No traffic volume:** time-of-day results reflect how many cars are on the road, not risk per mile.
 - **Police-reported crashes only:** there could be a significant number of minor accidents that are not reported.
 - **No claim dollars:** this measures how often crashes happen, not what they cost.
@@ -46,7 +46,7 @@ This export includes 487,914 crashes (2021–2025). The analysis uses **2023–2
 Used as exposure: the number of registered vehicles in each borough.
 
 **Filters applied** 
-- **Record Type** = VEH (vehicles only; excludes boats and snowmobiles)
+- **Record Type** = VEH (vehicles only excludes boats and snowmobiles)
 - **County** = Kings, Queens, New York, Bronx, Richmond (the five boroughs)
 - **Reg Expiration Date** after 01/01/2026
 - **Body Type** is not TRLR (excludes trailers, which can't crash on their own)
@@ -63,6 +63,6 @@ Then **Group and aggregate** by County, counting VINs. These counts are entered 
 | **Total** | | **2,140,181** |
 
 ### Data preparation notes
-- **Missing borough:** 27% of 2023–2025 crashes have no borough recorded, mostly highway crashes plus a few neighborhoods where the borough wasn't recorded (see map). Instead of dropping them, they were allocated to boroughs in proportion to registered vehicles; dropping them is shown as a sensitivity check.
+- **Missing borough:** 27% of 2023–2025 crashes have no borough recorded, mostly highway crashes plus a few neighborhoods where the borough wasn't recorded (see map). Instead of dropping them, they were allocated to boroughs in proportion to registered vehicles, so dropping them is shown as a sensitivity check.
 - **Map:** crashes without usable coordinates (about 7%) are excluded from the map only.
 - **Insurance price comparison:** average full-coverage premiums by area from [Insurify](https://insurify.com/car-insurance/new-york/average-cost/) (updated August 2026), used only to compare with results and actual pricing.
